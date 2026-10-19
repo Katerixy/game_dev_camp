@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bmu4feupyudy2"]
+
+[ext_resource type="Script" uid="uid://hvhvh3f08yyw" path="res://Scripts/shopActions.gd" id="1_47d71"]
+
+[node name="CookieShop" type="Control" unique_id=923047895]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 159.0
+offset_right = 112.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_47d71")
+
+[node name="gameScreen" type="Panel" parent="." unique_id=2139849228]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gameScreen" unique_id=344904686]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="gameScreen/HBoxContainer" unique_id=996146098]
+visible = false
+layout_mode = 2
+
+[node name="Shop" type="VBoxContainer" parent="gameScreen/HBoxContainer" unique_id=1411342162]
+visible = false
+layout_mode = 2
+
+[node name="ShopLabel" type="Label" parent="gameScreen/HBoxContainer/Shop" unique_id=495135170]
+visible = false
+layout_mode = 2
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Result" type="Label" parent="gameScreen/HBoxContainer/Shop" unique_id=650672172]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="gameScreen/HBoxContainer/Shop" unique_id=1332446273]
+visible = false
+layout_mode = 2
+
+[node name="SimpleUpgrade" type="Button" parent="gameScreen/HBoxContainer/Shop/GridContainer" unique_id=1827204516]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy clicks"
+
+[node name="MiddleUpgrade" type="Button" parent="gameScreen/HBoxContainer/Shop/GridContainer" unique_id=560188874]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy grandma
+"
+
+[node name="CostlyUpgrade" type="Button" parent="gameScreen/HBoxContainer/Shop/GridContainer" unique_id=717566508]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy farm
+"
+
+[connection signal="pressed" from="gameScreen/HBoxContainer/Shop/GridContainer/SimpleUpgrade" to="gameScreen/HBoxContainer/Shop" method="_on_simple_upgrade_pressed"]
+[connection signal="pressed" from="gameScreen/HBoxContainer/Shop/GridContainer/MiddleUpgrade" to="gameScreen/HBoxContainer/Shop" method="_on_middle_upgrade_pressed"]
+[connection signal="pressed" from="gameScreen/HBoxContainer/Shop/GridContainer/CostlyUpgrade" to="gameScreen/HBoxContainer/Shop" method="_on_costly_upgrade_pressed"]

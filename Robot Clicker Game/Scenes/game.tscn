@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://bse7b1nlt2l8b"]
+
+[ext_resource type="Script" uid="uid://igryjvdqcy1x" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://v163gv8cbyti" path="res://assets/robot_still.png" id="2_h4fw4"]
+[ext_resource type="Script" uid="uid://dx1bfdl7ny5w5" path="res://Scenes/alwaysUpdatingScript.gd" id="2_v158k"]
+[ext_resource type="Script" uid="uid://dq2qp1abaep0j" path="res://Scripts/texture_button.gd" id="3_3dryh"]
+[ext_resource type="Texture2D" uid="uid://c2lco85avpfce" path="res://assets/robot_pressed.png" id="3_ldgsr"]
+[ext_resource type="Script" uid="uid://hvhvh3f08yyw" path="res://Scripts/shopActions.gd" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://b31cyndcb6mu0" path="res://assets/wheat_small.png" id="5_1l0tm"]
+[ext_resource type="Script" uid="uid://15e2ksgmkgbw" path="res://Scripts/wheat_button.gd" id="5_wowpa"]
+[ext_resource type="Texture2D" uid="uid://b7241qfbycufh" path="res://408196.png" id="9_h4fw4"]
+
+[sub_resource type="GDScript" id="GDScript_3dryh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80nbo"]
+bg_color = Color(0.22599778, 0.56398386, 0.7361495, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
+bg_color = Color(6.738305e-07, 0.25448096, 0.65017223, 1)
+
+[node name="Game" type="Control" unique_id=1815107351]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wrm1d")
+
+[node name="mouseSettings" type="Node" parent="." unique_id=928394885]
+script = SubResource("GDScript_3dryh")
+
+[node name="CookiePanel" type="Panel" parent="." unique_id=362159860]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 800.0
+offset_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_80nbo")
+
+[node name="MarginContainer" type="MarginContainer" parent="CookiePanel" unique_id=473269681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CookiePanel/MarginContainer" unique_id=1143625910]
+layout_mode = 2
+
+[node name="Counter" type="Label" parent="CookiePanel/MarginContainer/VBoxContainer" unique_id=1454760617]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0 SCRAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Per Second" type="Label" parent="CookiePanel/MarginContainer/VBoxContainer" unique_id=2124163240]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0 Per Second"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CookiePanel/MarginContainer" unique_id=585681750]
+layout_mode = 2
+
+[node name="cookieButton" type="TextureButton" parent="CookiePanel/MarginContainer/CenterContainer" unique_id=775108517]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_h4fw4")
+texture_pressed = ExtResource("3_ldgsr")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_3dryh")
+
+[node name="RightPanel" type="Panel" parent="." unique_id=1279325348]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -351.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e2o6t")
+
+[node name="Label" type="Label" parent="RightPanel" unique_id=444152534]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="VBoxContainer" parent="RightPanel" unique_id=144371237]
+layout_mode = 0
+offset_left = 24.000008
+offset_top = 84.0
+offset_right = 136.0
+offset_bottom = 239.0
+scale = Vector2(2.1451542, 2.200133)
+script = ExtResource("4_3dryh")
+
+[node name="ShopLabel" type="Label" parent="RightPanel/Shop" unique_id=1713853140]
+layout_mode = 2
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Result" type="Label" parent="RightPanel/Shop" unique_id=1593798063]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="RightPanel/Shop" unique_id=15578445]
+layout_mode = 2
+
+[node name="SimpleUpgrade" type="Button" parent="RightPanel/Shop/GridContainer" unique_id=1160700365]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy weapon: 1"
+
+[node name="MiddleUpgrade" type="Button" parent="RightPanel/Shop/GridContainer" unique_id=682277227]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy harvest: 10
+"
+
+[node name="CostlyUpgrade" type="Button" parent="RightPanel/Shop/GridContainer" unique_id=621985073]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy troop: 30
+"
+
+[node name="wheatButton" type="TextureButton" parent="RightPanel" unique_id=1655533912]
+layout_mode = 0
+offset_left = 191.00002
+offset_top = 453.99997
+offset_right = 566.0
+offset_bottom = 899.0
+scale = Vector2(0.4277598, 0.42728308)
+texture_normal = ExtResource("5_1l0tm")
+texture_pressed = ExtResource("5_1l0tm")
+script = ExtResource("5_wowpa")
+
+[node name="wheatLabel" type="Label" parent="RightPanel/wheatButton" unique_id=1266096862]
+layout_mode = 0
+offset_left = -304.24792
+offset_top = 42.12671
+offset_right = -205.24792
+offset_bottom = 91.12671
+scale = Vector2(2.350715, 2.3445272)
+text = "Wheat ready
+"
+
+[node name="Timer" type="Timer" parent="." unique_id=1915379900]
+script = ExtResource("2_v158k")
+
+[node name="InfoButton" type="TextureButton" parent="." unique_id=667078053]
+layout_mode = 0
+offset_left = 22.999878
+offset_top = 27.999939
+offset_right = 534.9999
+offset_bottom = 539.99994
+scale = Vector2(0.11370525, 0.10920178)
+texture_normal = ExtResource("9_h4fw4")
+texture_pressed = ExtResource("9_h4fw4")
+script = ExtResource("1_wrm1d")
+
+[node name="InfoLabel" type="Label" parent="InfoButton" unique_id=469827943]
+layout_mode = 0
+offset_left = 0.0010681152
+offset_top = 576.91425
+offset_right = 363.00107
+offset_bottom = 735.91425
+scale = Vector2(6.204079, 9.3333235)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "Instructions:
+Click on the robot to collect scraps
+Buy weapons to increase scraps per click
+Harvest wheat for scraps
+Buy troops to generate scraps automatically
+"
+
+[connection signal="mouse_entered" from="CookiePanel/MarginContainer/CenterContainer/cookieButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="CookiePanel/MarginContainer/CenterContainer/cookieButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="RightPanel/Shop/GridContainer/SimpleUpgrade" to="RightPanel/Shop" method="_on_simple_upgrade_pressed"]
+[connection signal="pressed" from="RightPanel/Shop/GridContainer/MiddleUpgrade" to="RightPanel/Shop" method="_on_middle_upgrade_pressed"]
+[connection signal="pressed" from="RightPanel/Shop/GridContainer/CostlyUpgrade" to="RightPanel/Shop" method="_on_costly_upgrade_pressed"]
+[connection signal="mouse_entered" from="RightPanel/wheatButton" to="RightPanel/wheatButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="RightPanel/wheatButton" to="RightPanel/wheatButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="InfoButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="InfoButton" to="." method="_on_button_mouse_exited"]
